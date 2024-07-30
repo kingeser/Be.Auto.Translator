@@ -1,45 +1,46 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <ItemGroup>
-    <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="5.2.7" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="6.0.0" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <None Update="README.md">
-      <Pack>True</Pack>
-      <PackagePath>\</PackagePath>
-    </None>
-  </ItemGroup>
+	<ItemGroup>
+		<None Update="README.md">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+	</ItemGroup>
 
-  <PropertyGroup>
-    <Nullable>enable</Nullable>
-	  
-    <TargetFramework>net8.0</TargetFramework>
-	<Plateform>AnyCPU</Plateform>
-	<CopyLocalFileAssemblies>False</CopyLocalFileAssemblies>
-	<OutputType>Library</OutputType>
-	<AppDesignerFolder>Properties</AppDesignerFolder>
-	<RootNamespace>Be.Auto.Translator.Google</RootNamespace>
-	<FileAlignment>512</FileAlignment>
-	  
-    <PackageId>Be.Auto.Translator.Google</PackageId>
-    <Version>1.0</Version>
-    <Authors>Burak ESER</Authors>
-    <Company></Company>
-    <PackageDescription>Google Translate API - .NET Core 5</PackageDescription>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <RepositoryUrl>https://github.com/kingeser/Be.Auto.Translator.Google.git</RepositoryUrl>
-    <Description>Google Translate API Client</Description>
-    <PackageReleaseNotes>.NET Core 8</PackageReleaseNotes>
-    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-    <Title>Google Translator</Title>
-    <Copyright>Burak ESER</Copyright>
-    <PackageProjectUrl>https://github.com/kingeser/Be.Auto.Translator.Google</PackageProjectUrl>
-    <PackageReadmeFile>README.md</PackageReadmeFile>
-  </PropertyGroup>
+	<PropertyGroup>
+		<Nullable>enable</Nullable>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-  </PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<Plateform>AnyCPU</Plateform>
+		<CopyLocalFileAssemblies>False</CopyLocalFileAssemblies>
+		<OutputType>Library</OutputType>
+		<AppDesignerFolder>Properties</AppDesignerFolder>
+		<RootNamespace>Be.Auto.Translator.Google</RootNamespace>
+		<FileAlignment>512</FileAlignment>
+		<PackageId>Be.Auto.Translator.Google</PackageId>
+		<FileVersion>1.0.$([System.DateTime]::UtcNow.ToString(MMdd)).$([System.DateTime]::UtcNow.ToString(HHmm))</FileVersion>
+		<Version>1.0.$([System.DateTime]::UtcNow.ToString(MMdd)).$([System.DateTime]::UtcNow.ToString(HHmm))</Version>
+		<AssemblyVersion>1.0.$([System.DateTime]::UtcNow.ToString(MMdd)).$([System.DateTime]::UtcNow.ToString(HHmm))</AssemblyVersion>
+		<Authors>Burak ESER</Authors>
+		<Company></Company>
+		<PackageDescription>Google Translate API - .NET Core 5</PackageDescription>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<RepositoryUrl>https://github.com/kingeser/Be.Auto.Translator.Google.git</RepositoryUrl>
+		<Description>Google Translate API Client</Description>
+		<PackageReleaseNotes>.NET Core 8</PackageReleaseNotes>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<Title>Google Translator</Title>
+		<Copyright>Burak ESER</Copyright>
+		<PackageProjectUrl>https://github.com/kingeser/Be.Auto.Translator.Google</PackageProjectUrl>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<PlatformTarget>AnyCPU</PlatformTarget>
+	</PropertyGroup>
 
 </Project>
