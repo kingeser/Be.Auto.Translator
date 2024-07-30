@@ -5,7 +5,7 @@ The `GoogleTranslator` translate text from one language to another using the Goo
 ## Prerequisites
 
 - .NET Core 8
-- Newtonsoft.Json library
+- Microsoft.AspNet.WebApi.Client
 
 ## Example Usage
 
