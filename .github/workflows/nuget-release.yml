@@ -1,9 +1,13 @@
-name: Publish NuGet Package
+name: Build and Publish NuGet Package
 
 on:
   push:
     branches:
-      - main  
+      - main
+      - 'releases/*'
+  pull_request:
+    branches:
+      - main
 
 jobs:
   build:
@@ -13,12 +17,12 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v2
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: '8.0.x'  
+        dotnet-version: '8.0.x'
 
-    - name: Restore dependencies
+    - name: Install dependencies
       run: dotnet restore
 
     - name: Build
@@ -30,4 +34,4 @@ jobs:
     - name: Publish to NuGet
       env:
         NUGET_API_KEY: ${{ secrets.NUGET_API_KEY }}
-      run: dotnet nuget push ./nupkg/*.nupkg -k $NUGET_API_KEY -s https://api.nuget.org/v3/index.json
+      run: dotnet nuget push ./nupkg/*.nupkg -k ${{ secrets.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json
