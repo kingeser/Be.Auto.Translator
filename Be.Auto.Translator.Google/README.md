@@ -18,3 +18,5 @@ The `GoogleTranslator` translate text from one language to another using the Goo
 Ensure that you handle exceptions properly when using the TranslateAsync method, as it can throw GoogleTranslateException for various errors.
 
 The Translation class is assumed to have two properties: TranslatedText and OriginalText.
+
+Enjoy coding :)
