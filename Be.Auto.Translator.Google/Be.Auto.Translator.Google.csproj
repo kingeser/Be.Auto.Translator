@@ -27,7 +27,7 @@
 		<AssemblyVersion>1.0.$([System.DateTime]::UtcNow.ToString(MMdd)).$([System.DateTime]::UtcNow.ToString(HHmm))</AssemblyVersion>
 		<Authors>Burak ESER</Authors>
 		<Company></Company>
-		<PackageDescription>Google Translate API - .NET Core 5</PackageDescription>
+		<PackageDescription>Google Translate API</PackageDescription>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<RepositoryUrl>https://github.com/kingeser/Be.Auto.Translator.Google.git</RepositoryUrl>
 		<Description>Google Translate API Client</Description>
