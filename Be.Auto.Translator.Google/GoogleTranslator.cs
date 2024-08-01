@@ -61,7 +61,7 @@ public class GoogleTranslator : IGoogleTranslator
         {
             using var client = new HttpClient();
 
-            client.Timeout = TimeSpan.FromSeconds(5);
+            client.Timeout = TimeSpan.FromSeconds(10);
 
             client.DefaultRequestHeaders.UserAgent.Clear();
 
@@ -75,7 +75,7 @@ public class GoogleTranslator : IGoogleTranslator
 
             if (JsonConvert.DeserializeObject(responseString) is not JArray jArray)
             {
-                return new Translation(string.Empty, textToTranslate);
+                return new Translation(string.Empty, textToTranslate,sourceLanguage,targetLanguage);
             }
 
             var translatedText = string.Empty;
@@ -87,7 +87,7 @@ public class GoogleTranslator : IGoogleTranslator
 
             if (jTokens.Length == 0)
             {
-                return new Translation(string.Empty, textToTranslate);
+                return new Translation(string.Empty, textToTranslate,sourceLanguage, targetLanguage);
             }
 
             foreach (var token in jTokens)
@@ -96,11 +96,11 @@ public class GoogleTranslator : IGoogleTranslator
                 originalText += token.Skip(1).First()?.Value<string>();
             }
 
-            return string.IsNullOrEmpty(translatedText) ? new Translation(string.Empty, textToTranslate) : new Translation(translatedText, originalText);
+            return string.IsNullOrEmpty(translatedText) ? new Translation(string.Empty, textToTranslate,sourceLanguage, targetLanguage) : new Translation(translatedText, originalText,sourceLanguage,targetLanguage);
         }
         catch
         {
-            return new Translation(string.Empty, textToTranslate);
+            return new Translation(string.Empty, textToTranslate, sourceLanguage, targetLanguage);
         }
     }
 }

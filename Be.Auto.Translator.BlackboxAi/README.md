@@ -1,6 +1,6 @@
-# GoogleTranslator
+# BlacboxAiTranslator
 
-The `GoogleTranslator` translate text from one language to another using the Google Translate API.
+The `BlacboxAiTranslator` translate text from one language to another using the Google Translate API.
 
 ## Prerequisites
 
@@ -10,7 +10,7 @@ The `GoogleTranslator` translate text from one language to another using the Goo
 ## Example Usage
 
 ```csharp
- using Be.Auto.Translator.BlackboxAi;
+using Be.Auto.Translator.BlackboxAi;
 using Be.Auto.Translator.Google;
 
 var googleTranslator = new GoogleTranslator();

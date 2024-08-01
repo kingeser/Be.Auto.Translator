@@ -4,31 +4,37 @@
 		<PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="6.0.0" />
 	</ItemGroup>
 
+	<ItemGroup>
+		<None Update="README.md">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+	</ItemGroup>
+
 	<PropertyGroup>
 		<Nullable>enable</Nullable>
-
 		<TargetFramework>net8.0</TargetFramework>
 		<Plateform>AnyCPU</Plateform>
 		<CopyLocalFileAssemblies>False</CopyLocalFileAssemblies>
 		<OutputType>Library</OutputType>
 		<AppDesignerFolder>Properties</AppDesignerFolder>
-		<RootNamespace>Be.Auto.Translator.Google</RootNamespace>
+		<RootNamespace>Be.Auto.Translator.BlackboxAi</RootNamespace>
 		<FileAlignment>512</FileAlignment>
-		<PackageId>Be.Auto.Translator.Google</PackageId>
+		<PackageId>Be.Auto.Translator.BlackboxAi</PackageId>
 		<FileVersion>1.0.$([System.DateTime]::UtcNow.ToString(MMdd)).$([System.DateTime]::UtcNow.ToString(HHmm))</FileVersion>
 		<Version>1.0.$([System.DateTime]::UtcNow.ToString(MMdd)).$([System.DateTime]::UtcNow.ToString(HHmm))</Version>
 		<AssemblyVersion>1.0.$([System.DateTime]::UtcNow.ToString(MMdd)).$([System.DateTime]::UtcNow.ToString(HHmm))</AssemblyVersion>
 		<Authors>Burak ESER</Authors>
 		<Company></Company>
-		<PackageDescription>Google Translate API</PackageDescription>
+		<PackageDescription>BlackboxAi Translate API</PackageDescription>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
-		<RepositoryUrl>https://github.com/kingeser/Be.Auto.Translator.Google.git</RepositoryUrl>
-		<Description>Google Translate API Client</Description>
+		<RepositoryUrl>https://github.com/kingeser/Be.Auto.Translator.BlackboxAi.git</RepositoryUrl>
+		<Description>BlackboxAi Translate API Client</Description>
 		<PackageReleaseNotes>.NET Core 8</PackageReleaseNotes>
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-		<Title>Google Translator</Title>
+		<Title>BlackboxAi Translator</Title>
 		<Copyright>Burak ESER</Copyright>
-		<PackageProjectUrl>https://github.com/kingeser/Be.Auto.Translator.Google</PackageProjectUrl>
+		<PackageProjectUrl>https://github.com/kingeser/Be.Auto.Translator.BlackboxAi</PackageProjectUrl>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 	</PropertyGroup>
 
@@ -36,17 +42,9 @@
 		<PlatformTarget>AnyCPU</PlatformTarget>
 	</PropertyGroup>
 	
-	
-		<ItemGroup>
-	  <ProjectReference Include="..\Be.Auto.Translator\Be.Auto.Translator.csproj" />
-	</ItemGroup>
-	
-	
-		<ItemGroup>
-		  <None Update="README.md">
-		    <PackagePath>\</PackagePath>
-		    <Pack>True</Pack>
-		  </None>
-		</ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Be.Auto.Translator\Be.Auto.Translator.csproj" />
+  </ItemGroup>
 
 </Project>

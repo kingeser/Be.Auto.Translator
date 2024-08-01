@@ -1,6 +1,8 @@
-﻿using Be.Auto.Translator.Google;
+﻿using Be.Auto.Translator.BlackboxAi;
+using Be.Auto.Translator.Google;
 
 var googleTranslator = new GoogleTranslator();
+var blackboxaiTranslator = new BlackboxATranslator();
 
 START:
 
@@ -21,5 +23,10 @@ var googleTranslatorResult = await googleTranslator.TryTranslateAsync(targetLang
 
 Console.WriteLine("Google Translate Result:");
 Console.WriteLine(googleTranslatorResult);
+
+var blackboxaiTranslatorTranslatorResult = await blackboxaiTranslator.TryTranslateAsync(targetLanguage, text);
+
+Console.WriteLine("BlackboxAi Translate Result:");
+Console.WriteLine(blackboxaiTranslatorTranslatorResult);
 
 goto START;
