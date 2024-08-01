@@ -36,7 +36,7 @@ public class GoogleTranslator : IGoogleTranslator
         {
             using var client = new HttpClient();
 
-            client.Timeout = TimeSpan.FromMilliseconds(10);
+            client.Timeout = TimeSpan.FromSeconds(5);
 
             client.DefaultRequestHeaders.UserAgent.Clear();
 
