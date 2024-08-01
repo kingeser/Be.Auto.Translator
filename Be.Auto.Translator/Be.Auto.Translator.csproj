@@ -1,9 +1,45 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="6.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Update="README.md">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+	</ItemGroup>
+
+	<PropertyGroup>
+		<Nullable>enable</Nullable>
+		<TargetFramework>net8.0</TargetFramework>
+		<Plateform>AnyCPU</Plateform>
+		<CopyLocalFileAssemblies>False</CopyLocalFileAssemblies>
+		<OutputType>Library</OutputType>
+		<AppDesignerFolder>Properties</AppDesignerFolder>
+		<RootNamespace>Be.Auto.Translator</RootNamespace>
+		<FileAlignment>512</FileAlignment>
+		<PackageId>Be.Auto.Translator</PackageId>
+		<FileVersion>1.0.1</FileVersion>
+		<Version>1.0.1</Version>
+		<AssemblyVersion>1.0.1</AssemblyVersion>
+		<Authors>Burak ESER</Authors>
+		<Company></Company>
+		<PackageDescription>Language Translator</PackageDescription>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+		<RepositoryUrl>https://github.com/kingeser/Be.Auto.Translator.git</RepositoryUrl>
+		<Description>Language Translate API Client</Description>
+		<PackageReleaseNotes>.NET Core 8</PackageReleaseNotes>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<Title>Language Translator</Title>
+		<Copyright>Burak ESER</Copyright>
+		<PackageProjectUrl>https://github.com/kingeser/Be.Auto.Translator</PackageProjectUrl>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+		<PlatformTarget>AnyCPU</PlatformTarget>
+	</PropertyGroup>
 
 </Project>

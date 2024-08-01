@@ -1,4 +1,6 @@
-﻿namespace Be.Auto.Translator;
+﻿using System;
+
+namespace Be.Auto.Translator;
 
 [AttributeUsage(AttributeTargets.Field)]
 internal class LanguageCodeAttribute : Attribute

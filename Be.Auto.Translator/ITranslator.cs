@@ -1,4 +1,6 @@
-﻿namespace Be.Auto.Translator;
+﻿using System.Threading.Tasks;
+
+namespace Be.Auto.Translator;
 
 public interface ITranslator
 {

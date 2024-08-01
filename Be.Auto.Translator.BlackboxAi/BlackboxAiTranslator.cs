@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace Be.Auto.Translator.BlackboxAi;
 
-public class BlackboxATranslator(TimeSpan timeout) : IBlacboxAiTranslator
+public class BlackboxAiTranslator(TimeSpan timeout) : IBlackboxAiTranslator
 {
-    public BlackboxATranslator() : this(TimeSpan.FromSeconds(15))
+    public BlackboxAiTranslator() : this(TimeSpan.FromSeconds(15))
     {
     }
     public async Task<Translation> TranslateAsync(Language sourceLanguage, Language targetLanguage, string textToTranslate)

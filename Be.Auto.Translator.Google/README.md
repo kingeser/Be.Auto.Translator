@@ -1,4 +1,4 @@
-# GoogleTranslator
+# Google Translator
 
 The `GoogleTranslator` translate text from one language to another using the Google Translate API.
 
@@ -10,15 +10,14 @@ The `GoogleTranslator` translate text from one language to another using the Goo
 ## Example Usage
 
 ```csharp
- using Be.Auto.Translator.BlackboxAi;
 using Be.Auto.Translator.Google;
 
-var googleTranslator = new GoogleTranslator();
-var blackboxaiTranslator = new BlackboxATranslator();
+var googleTranslator = new GoogleTranslator(TimeSpan.FromSeconds(30));
 
 START:
 
 Console.WriteLine("Please enter the language code you want to translate.");
+Console.WriteLine();
 var targetLanguage = Console.ReadLine();
 
 if (string.IsNullOrEmpty(targetLanguage))
@@ -26,22 +25,23 @@ if (string.IsNullOrEmpty(targetLanguage))
 
 TEXT:
 Console.WriteLine("Enter the text you want to translate.");
+Console.WriteLine();
 var text = Console.ReadLine();
 
 if(string.IsNullOrWhiteSpace(text))
     goto TEXT;
 
-var googleTranslatorResult = await googleTranslator.TryTranslateAsync(targetLanguage, text);
+var result = await googleTranslator.TryTranslateAsync(targetLanguage, text);
 
 Console.WriteLine("Google Translate Result:");
-Console.WriteLine(googleTranslatorResult);
+Console.WriteLine();
+Console.WriteLine(result);
+Console.WriteLine("----------------------------------------------------");
 
-var blackboxaiTranslatorTranslatorResult = await googleTranslator.TryTranslateAsync(targetLanguage, text);
 
-Console.WriteLine("BlackboxAi Translate Result:");
-Console.WriteLine(blackboxaiTranslatorTranslatorResult);
 
 goto START;
+
 
 ```
 
