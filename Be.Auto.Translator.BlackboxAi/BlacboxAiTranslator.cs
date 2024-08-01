@@ -116,7 +116,7 @@ public class BlackboxATranslator : IBlacboxAiTranslator
 
             if (aiResponse == null) return new Translation(string.Empty, textToTranslate, sourceLanguage, targetLanguage);
 
-            aiResponse.IsSuccess = true;
+            aiResponse.IsSuccess = !string.IsNullOrEmpty(textToTranslate);
             aiResponse.OriginalText = textToTranslate;
 
             return aiResponse;
