@@ -9,10 +9,29 @@ namespace Be.Auto.Translator.Google;
 
 public class GoogleTranslator : IGoogleTranslator
 {
-
     public async Task<Translation> TranslateAsync(Language sourceLanguage, Language targetLanguage, string textToTranslate)
     {
+        return await TryTranslateTextAsync(LanguageUtils.GetCode(sourceLanguage), LanguageUtils.GetCode(targetLanguage), textToTranslate);
+    }
 
+    public async Task<Translation> TranslateAsync(string sourceLanguage, string targetLanguage, string textToTranslate)
+    {
+        return await TryTranslateTextAsync(sourceLanguage, targetLanguage, textToTranslate);
+    }
+
+    public async Task<Translation> TranslateAsync(Language targetLanguage, string textToTranslate)
+    {
+        return await TryTranslateTextAsync(LanguageUtils.GetCode(Language.AutoDetect), LanguageUtils.GetCode(targetLanguage), textToTranslate);
+    }
+
+    public async Task<Translation> TranslateAsync(string targetLanguage, string textToTranslate)
+    {
+        return await TryTranslateTextAsync(LanguageUtils.GetCode(Language.AutoDetect), targetLanguage, textToTranslate);
+    }
+
+    private static async Task<Translation> TryTranslateTextAsync(string sourceLanguage, string targetLanguage, string textToTranslate)
+
+    {
         try
         {
             using var client = new HttpClient();
@@ -23,7 +42,7 @@ public class GoogleTranslator : IGoogleTranslator
 
             client.DefaultRequestHeaders.UserAgent.ParseAdd("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36");
 
-            var response = await client.GetAsync($"https://translate.googleapis.com/translate_a/single?client=gtx&sl={LanguageUtils.GetCode(sourceLanguage)}&tl={LanguageUtils.GetCode(targetLanguage)}&dt=t&q={Uri.EscapeDataString(textToTranslate)}");
+            var response = await client.GetAsync($"https://translate.googleapis.com/translate_a/single?client=gtx&sl={sourceLanguage}&tl={targetLanguage}&dt=t&q={Uri.EscapeDataString(textToTranslate)}");
 
             response.EnsureSuccessStatusCode();
 
@@ -31,7 +50,7 @@ public class GoogleTranslator : IGoogleTranslator
 
             if (JsonConvert.DeserializeObject(responseString) is not JArray jArray)
             {
-                throw new GoogleTranslateException("Wrong translate response!");
+                return new Translation(string.Empty, textToTranslate);
             }
 
             var translatedText = string.Empty;
@@ -43,7 +62,7 @@ public class GoogleTranslator : IGoogleTranslator
 
             if (jTokens.Length == 0)
             {
-                throw new GoogleTranslateException("Wrong translate response!");
+                return new Translation(string.Empty, textToTranslate);
             }
 
             foreach (var token in jTokens)
@@ -52,19 +71,11 @@ public class GoogleTranslator : IGoogleTranslator
                 originalText += token.Skip(1).First()?.Value<string>();
             }
 
-            if (string.IsNullOrEmpty(translatedText))
-            {
-                throw new GoogleTranslateException("Cannot translated!");
-            }
-
-            return new Translation(translatedText, originalText);
-
+            return string.IsNullOrEmpty(translatedText) ? new Translation(string.Empty, textToTranslate) : new Translation(translatedText, originalText);
         }
-        catch (Exception e)
+        catch
         {
-            throw new GoogleTranslateException(e.Message, e);
+            return new Translation(string.Empty, textToTranslate);
         }
     }
-
-
 }
