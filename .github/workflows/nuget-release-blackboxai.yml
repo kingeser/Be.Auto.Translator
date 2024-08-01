@@ -1,4 +1,4 @@
-name: Build and Publish NuGet Package
+name: Build and Publish BlackboxAi Translator NuGet Package
 
 on:
   push:
@@ -23,13 +23,13 @@ jobs:
         dotnet-version: '8.0.x'
 
     - name: Install dependencies
-      run: dotnet restore
+      run: dotnet restore Be.Auto.Translator.BlackboxAi/Be.Auto.Translator.BlackboxAi.csproj
 
     - name: Build
-      run: dotnet build --configuration Release --no-restore
+      run: dotnet build --configuration Release --no-restore Be.Auto.Translator.BlackboxAi/Be.Auto.Translator.BlackboxAi.csproj
 
     - name: Pack
-      run: dotnet pack --configuration Release --no-build --output ./nupkg
+      run: dotnet pack --configuration Release --no-build --output ./nupkg Be.Auto.Translator.BlackboxAi/Be.Auto.Translator.BlackboxAi.csproj
 
     - name: Publish to NuGet
       env:
