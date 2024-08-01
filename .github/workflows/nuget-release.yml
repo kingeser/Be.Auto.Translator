@@ -1,4 +1,4 @@
-name: Build and Publish NuGet Package
+name: Build and Publish Project1 NuGet Package
 
 on:
   push:
@@ -23,13 +23,13 @@ jobs:
         dotnet-version: '8.0.x'
 
     - name: Install dependencies
-      run: dotnet restore
+      run: dotnet restore Be.Auto.Translator.Google/Be.Auto.Translator.Google.csproj
 
     - name: Build
-      run: dotnet build --configuration Release --no-restore
+      run: dotnet build --configuration Release --no-restore Be.Auto.Translator.Google/Be.Auto.Translator.Google.csproj
 
     - name: Pack
-      run: dotnet pack --configuration Release --no-build --output ./nupkg
+      run: dotnet pack --configuration Release --no-build --output ./nupkg Be.Auto.Translator.Google/Be.Auto.Translator.Google.csproj
 
     - name: Publish to NuGet
       env:
