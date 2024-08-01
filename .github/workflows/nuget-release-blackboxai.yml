@@ -1,4 +1,4 @@
-name: Build and Publish Project1 NuGet Package
+name: Build and Publish BlackboxAi Translator NuGet Package
 
 on:
   push:
