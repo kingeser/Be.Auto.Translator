@@ -8,8 +8,11 @@ using System.Threading.Tasks;
 
 namespace Be.Auto.Translator.BlackboxAi;
 
-public class BlackboxATranslator : IBlacboxAiTranslator
+public class BlackboxATranslator(TimeSpan timeout) : IBlacboxAiTranslator
 {
+    public BlackboxATranslator() : this(TimeSpan.FromSeconds(15))
+    {
+    }
     public async Task<Translation> TranslateAsync(Language sourceLanguage, Language targetLanguage, string textToTranslate)
     {
         return await TryTranslateTextAsync(LanguageUtils.GetCode(sourceLanguage), LanguageUtils.GetCode(targetLanguage), textToTranslate);
@@ -55,14 +58,14 @@ public class BlackboxATranslator : IBlacboxAiTranslator
         return result.IsSuccess ? result.TranslatedText : result.OriginalText;
     }
 
-    private static async Task<Translation> TryTranslateTextAsync(string sourceLanguage, string targetLanguage, string textToTranslate)
+    private  async Task<Translation> TryTranslateTextAsync(string sourceLanguage, string targetLanguage, string textToTranslate)
 
     {
         try
         {
             var key = GenerateKey();
             using var httpClient = new HttpClient();
-            httpClient.Timeout = TimeSpan.FromSeconds(10);
+            httpClient.Timeout = timeout;
             httpClient.DefaultRequestHeaders.UserAgent.Clear();
             httpClient.DefaultRequestHeaders.UserAgent.ParseAdd("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36");
             var request = new HttpRequestMessage(HttpMethod.Post, "https://www.blackbox.ai/api/chat");

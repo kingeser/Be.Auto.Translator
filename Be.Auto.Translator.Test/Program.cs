@@ -1,12 +1,13 @@
 ﻿using Be.Auto.Translator.BlackboxAi;
 using Be.Auto.Translator.Google;
 
-var googleTranslator = new GoogleTranslator();
-var blackboxaiTranslator = new BlackboxATranslator();
+var googleTranslator = new GoogleTranslator(TimeSpan.FromSeconds(30));
+var blackboxaiTranslator = new BlackboxATranslator(TimeSpan.FromSeconds(30));
 
 START:
 
 Console.WriteLine("Please enter the language code you want to translate.");
+Console.WriteLine();
 var targetLanguage = Console.ReadLine();
 
 if (string.IsNullOrEmpty(targetLanguage))
@@ -14,6 +15,7 @@ if (string.IsNullOrEmpty(targetLanguage))
 
 TEXT:
 Console.WriteLine("Enter the text you want to translate.");
+Console.WriteLine();
 var text = Console.ReadLine();
 
 if(string.IsNullOrWhiteSpace(text))
@@ -22,11 +24,15 @@ if(string.IsNullOrWhiteSpace(text))
 var googleTranslatorResult = await googleTranslator.TryTranslateAsync(targetLanguage, text);
 
 Console.WriteLine("Google Translate Result:");
+Console.WriteLine();
 Console.WriteLine(googleTranslatorResult);
+Console.WriteLine("----------------------------------------------------");
 
 var blackboxaiTranslatorTranslatorResult = await blackboxaiTranslator.TryTranslateAsync(targetLanguage, text);
 
 Console.WriteLine("BlackboxAi Translate Result:");
+Console.WriteLine();
 Console.WriteLine(blackboxaiTranslatorTranslatorResult);
+Console.WriteLine("----------------------------------------------------");
 
 goto START;

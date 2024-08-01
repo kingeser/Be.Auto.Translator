@@ -7,8 +7,11 @@ using Newtonsoft.Json.Linq;
 
 namespace Be.Auto.Translator.Google;
 
-public class GoogleTranslator : IGoogleTranslator
+public class GoogleTranslator(TimeSpan timeout) : IGoogleTranslator
 {
+    public GoogleTranslator() : this(TimeSpan.FromSeconds(15))
+    {
+    }
     public async Task<Translation> TranslateAsync(Language sourceLanguage, Language targetLanguage, string textToTranslate)
     {
         return await TryTranslateTextAsync(LanguageUtils.GetCode(sourceLanguage), LanguageUtils.GetCode(targetLanguage), textToTranslate);
@@ -54,15 +57,14 @@ public class GoogleTranslator : IGoogleTranslator
         return result.IsSuccess ? result.TranslatedText : result.OriginalText;
     }
 
-    private static async Task<Translation> TryTranslateTextAsync(string sourceLanguage, string targetLanguage, string textToTranslate)
+    private  async Task<Translation> TryTranslateTextAsync(string sourceLanguage, string targetLanguage, string textToTranslate)
 
     {
         try
         {
             using var client = new HttpClient();
 
-            client.Timeout = TimeSpan.FromSeconds(10);
-
+            client.Timeout = timeout;
             client.DefaultRequestHeaders.UserAgent.Clear();
 
             client.DefaultRequestHeaders.UserAgent.ParseAdd("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36");
