@@ -29,6 +29,31 @@ public class GoogleTranslator : IGoogleTranslator
         return await TryTranslateTextAsync(LanguageUtils.GetCode(Language.AutoDetect), targetLanguage, textToTranslate);
     }
 
+    public async Task<string> TryTranslateAsync(Language sourceLanguage, Language targetLanguage, string textToTranslate)
+    {
+        var result = await TryTranslateTextAsync(LanguageUtils.GetCode(sourceLanguage), LanguageUtils.GetCode(targetLanguage), textToTranslate);
+
+        return result.IsSuccess ? result.TranslatedText : result.OriginalText;
+    }
+
+    public async Task<string> TryTranslateAsync(string sourceLanguage, string targetLanguage, string textToTranslate)
+    {
+        var result = await TryTranslateTextAsync(sourceLanguage, targetLanguage, textToTranslate);
+        return result.IsSuccess ? result.TranslatedText : result.OriginalText;
+    }
+
+    public async Task<string> TryTranslateAsync(Language targetLanguage, string textToTranslate)
+    {
+        var result = await TryTranslateTextAsync(LanguageUtils.GetCode(Language.AutoDetect), LanguageUtils.GetCode(targetLanguage), textToTranslate);
+        return result.IsSuccess ? result.TranslatedText : result.OriginalText;
+    }
+
+    public async Task<string> TryTranslateAsync(string targetLanguage, string textToTranslate)
+    {
+        var result = await TryTranslateTextAsync(LanguageUtils.GetCode(Language.AutoDetect), targetLanguage, textToTranslate);
+        return result.IsSuccess ? result.TranslatedText : result.OriginalText;
+    }
+
     private static async Task<Translation> TryTranslateTextAsync(string sourceLanguage, string targetLanguage, string textToTranslate)
 
     {
