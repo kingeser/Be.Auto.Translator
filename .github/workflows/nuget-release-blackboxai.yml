@@ -5,9 +5,13 @@ on:
     branches:
       - main
       - 'releases/*'
+    paths:
+      - 'Be.Auto.Translator.BlackboxAi/**'
   pull_request:
     branches:
       - main
+    paths:
+      - 'Be.Auto.Translator.BlackboxAi/**'
 
 jobs:
   build:
