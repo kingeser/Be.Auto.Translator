@@ -15,20 +15,20 @@
 		<RootNamespace>Be.Auto.Translator.Google</RootNamespace>
 		<FileAlignment>512</FileAlignment>
 		<PackageId>Be.Auto.Translator.Google</PackageId>
-		<FileVersion>1.0.$([System.DateTime]::UtcNow.ToString(MMdd)).$([System.DateTime]::UtcNow.ToString(HHmm))</FileVersion>
-		<Version>1.0.$([System.DateTime]::UtcNow.ToString(MMdd)).$([System.DateTime]::UtcNow.ToString(HHmm))</Version>
-		<AssemblyVersion>1.0.$([System.DateTime]::UtcNow.ToString(MMdd)).$([System.DateTime]::UtcNow.ToString(HHmm))</AssemblyVersion>
+		<FileVersion>1.1.0</FileVersion>
+		<Version>1.1.0</Version>
+		<AssemblyVersion>1.1.0</AssemblyVersion>
 		<Authors>Burak ESER</Authors>
 		<Company></Company>
 		<PackageDescription>Google Translate API</PackageDescription>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
-		<RepositoryUrl>https://github.com/kingeser/Be.Auto.Translator.Google.git</RepositoryUrl>
+		<RepositoryUrl>https://github.com/kingeser/Be.Auto.Translator.git</RepositoryUrl>
 		<Description>Google Translate API Client</Description>
 		<PackageReleaseNotes>.NET Core 8</PackageReleaseNotes>
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 		<Title>Google Translator</Title>
 		<Copyright>Burak ESER</Copyright>
-		<PackageProjectUrl>https://github.com/kingeser/Be.Auto.Translator.Google</PackageProjectUrl>
+		<PackageProjectUrl>https://github.com/kingeser/Be.Auto.Translator</PackageProjectUrl>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 	</PropertyGroup>
 

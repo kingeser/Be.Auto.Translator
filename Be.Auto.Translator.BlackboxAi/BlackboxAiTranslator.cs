@@ -8,51 +8,51 @@ using System.Threading.Tasks;
 
 namespace Be.Auto.Translator.BlackboxAi;
 
-public class BlackboxAiTranslator(TimeSpan timeout) : IBlackboxAiTranslator
+public class BlackboxAiTranslator(TimeSpan timeout) :Translator, IBlackboxAiTranslator
 {
     public BlackboxAiTranslator() : this(TimeSpan.FromSeconds(15))
     {
     }
-    public async Task<Translation> TranslateAsync(Language sourceLanguage, Language targetLanguage, string textToTranslate)
+    public override async Task<Translation> TranslateAsync(Language sourceLanguage, Language targetLanguage, string textToTranslate)
     {
         return await TryTranslateTextAsync(LanguageUtils.GetCode(sourceLanguage), LanguageUtils.GetCode(targetLanguage), textToTranslate);
     }
 
-    public async Task<Translation> TranslateAsync(string sourceLanguage, string targetLanguage, string textToTranslate)
+    public override async Task<Translation> TranslateAsync(string sourceLanguage, string targetLanguage, string textToTranslate)
     {
         return await TryTranslateTextAsync(sourceLanguage, targetLanguage, textToTranslate);
     }
 
-    public async Task<Translation> TranslateAsync(Language targetLanguage, string textToTranslate)
+    public override async Task<Translation> TranslateAsync(Language targetLanguage, string textToTranslate)
     {
         return await TryTranslateTextAsync(LanguageUtils.GetCode(Language.AutoDetect), LanguageUtils.GetCode(targetLanguage), textToTranslate);
     }
 
-    public async Task<Translation> TranslateAsync(string targetLanguage, string textToTranslate)
+    public override async Task<Translation> TranslateAsync(string targetLanguage, string textToTranslate)
     {
         return await TryTranslateTextAsync(LanguageUtils.GetCode(Language.AutoDetect), targetLanguage, textToTranslate);
     }
 
-    public async Task<string> TryTranslateAsync(Language sourceLanguage, Language targetLanguage, string textToTranslate)
+    public override async Task<string> TryTranslateAsync(Language sourceLanguage, Language targetLanguage, string textToTranslate)
     {
         var result = await TryTranslateTextAsync(LanguageUtils.GetCode(sourceLanguage), LanguageUtils.GetCode(targetLanguage), textToTranslate);
 
         return result.IsSuccess ? result.TranslatedText : result.OriginalText;
     }
 
-    public async Task<string> TryTranslateAsync(string sourceLanguage, string targetLanguage, string textToTranslate)
+    public override async Task<string> TryTranslateAsync(string sourceLanguage, string targetLanguage, string textToTranslate)
     {
         var result = await TryTranslateTextAsync(sourceLanguage, targetLanguage, textToTranslate);
         return result.IsSuccess ? result.TranslatedText : result.OriginalText;
     }
 
-    public async Task<string> TryTranslateAsync(Language targetLanguage, string textToTranslate)
+    public override async Task<string> TryTranslateAsync(Language targetLanguage, string textToTranslate)
     {
         var result = await TryTranslateTextAsync(LanguageUtils.GetCode(Language.AutoDetect), LanguageUtils.GetCode(targetLanguage), textToTranslate);
         return result.IsSuccess ? result.TranslatedText : result.OriginalText;
     }
 
-    public async Task<string> TryTranslateAsync(string targetLanguage, string textToTranslate)
+    public override async Task<string> TryTranslateAsync(string targetLanguage, string textToTranslate)
     {
         var result = await TryTranslateTextAsync(LanguageUtils.GetCode(Language.AutoDetect), targetLanguage, textToTranslate);
         return result.IsSuccess ? result.TranslatedText : result.OriginalText;

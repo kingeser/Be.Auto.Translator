@@ -21,20 +21,20 @@
 		<RootNamespace>Be.Auto.Translator.BlackboxAi</RootNamespace>
 		<FileAlignment>512</FileAlignment>
 		<PackageId>Be.Auto.Translator.BlackboxAi</PackageId>
-		<FileVersion>1.0.$([System.DateTime]::UtcNow.ToString(MMdd)).$([System.DateTime]::UtcNow.ToString(HHmm))</FileVersion>
-		<Version>1.0.$([System.DateTime]::UtcNow.ToString(MMdd)).$([System.DateTime]::UtcNow.ToString(HHmm))</Version>
-		<AssemblyVersion>1.0.$([System.DateTime]::UtcNow.ToString(MMdd)).$([System.DateTime]::UtcNow.ToString(HHmm))</AssemblyVersion>
+		<FileVersion>1.1.0</FileVersion>
+		<Version>1.1.0</Version>
+		<AssemblyVersion>1.1.0</AssemblyVersion>
 		<Authors>Burak ESER</Authors>
 		<Company></Company>
 		<PackageDescription>BlackboxAi Translate API</PackageDescription>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
-		<RepositoryUrl>https://github.com/kingeser/Be.Auto.Translator.BlackboxAi.git</RepositoryUrl>
+		<RepositoryUrl>https://github.com/kingeser/Be.Auto.Translator.git</RepositoryUrl>
 		<Description>BlackboxAi Translate API Client</Description>
 		<PackageReleaseNotes>.NET Core 8</PackageReleaseNotes>
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 		<Title>BlackboxAi Translator</Title>
 		<Copyright>Burak ESER</Copyright>
-		<PackageProjectUrl>https://github.com/kingeser/Be.Auto.Translator.BlackboxAi</PackageProjectUrl>
+		<PackageProjectUrl>https://github.com/kingeser/Be.Auto.Translator</PackageProjectUrl>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 	</PropertyGroup>
 

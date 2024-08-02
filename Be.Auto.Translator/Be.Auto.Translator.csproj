@@ -21,9 +21,9 @@
 		<RootNamespace>Be.Auto.Translator</RootNamespace>
 		<FileAlignment>512</FileAlignment>
 		<PackageId>Be.Auto.Translator</PackageId>
-		<FileVersion>1.0.1</FileVersion>
-		<Version>1.0.1</Version>
-		<AssemblyVersion>1.0.1</AssemblyVersion>
+		<FileVersion>1.1.0</FileVersion>
+		<Version>1.1.0</Version>
+		<AssemblyVersion>1.1.0</AssemblyVersion>
 		<Authors>Burak ESER</Authors>
 		<Company></Company>
 		<PackageDescription>Language Translator</PackageDescription>
