@@ -8,8 +8,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Be.Auto.Translator.BlackboxAi\Be.Auto.Translator.BlackboxAi.csproj" />
-    <ProjectReference Include="..\Be.Auto.Translator.Google\Be.Auto.Translator.Google.csproj" />
+    <PackageReference Include="Be.Auto.Translator.BlackboxAi" Version="1.1.0" />
+    <PackageReference Include="Be.Auto.Translator.Google" Version="1.1.0" />
   </ItemGroup>
 
 </Project>
