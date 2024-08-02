@@ -5,9 +5,13 @@ on:
     branches:
       - main
       - 'releases/*'
+    paths:
+      - 'Be.Auto.Translator.Google/**'
   pull_request:
     branches:
       - main
+    paths:
+      - 'Be.Auto.Translator.Google/**'
 
 jobs:
   build:
